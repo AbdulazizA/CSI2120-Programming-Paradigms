@@ -1,0 +1,146 @@
+<HTML>
+<HEAD>
+<TITLE>CSI 2120, Winter 2016, Lab 9</TITLE>
+</HEAD>
+<BODY >
+<h1> CSI 2120</h1>
+<h2> Lab 9: Python</h2>
+
+
+<h3>Exercise 1: Formatted Output</h3>
+
+<p>
+Go to the Python 3 documentation and look up formatted printing in Chapter <code>7 Input and Output</code>.
+</p>
+
+<h4>Hello World!</h4>
+
+Complete the following lines to print 'Hello World!'.
+
+<pre><code> 
+print( '{} {}!'.format _________
+print( '{0} {1}!'.format _________
+print( '{hello} {world}!'.format _________
+</code></pre>
+
+
+<h4>Formatting Integers and UTF-8 Encoding</h4>
+
+The character corresponding to UTF-8 encoding is returned by the function <code>chr()</code>. Try the following:
+
+<pre><code> 
+type(126)
+chr(126)
+type(chr(126))
+</code></pre>
+
+You can use <code>'{a:d}'.format(a=10)</code> to format integers into strings (here the the string 10 is produced). Use formatted printing to print the number 126 as hex value:
+<pre><code>
+print( '{0:#04x}.format ____________
+</code></pre>
+
+Now print the line
+<pre><code>
+126  0x7e  ~
+</code></pre>
+
+
+<h4>For Loop</h4>
+
+Write a short program to show a formatted table with characters from decimal 0 to 255. Your printout should contain the integer, the hex number and the character corresponding to the unicode with UTF-8 encoding.
+
+</p>
+<p> The output must appear as follows (make sure the columns are aligned!): </p>
+
+<pre><code>
+  0  0x00  
+  1  0x01  
+  2  0x02  
+</code></pre>
+<em> and so on ... </em>
+<pre><code>
+ 65  0x41  A
+ 66  0x42  B
+ 67  0x43  C
+</code></pre>
+<em> ... continuing to 255 </em>
+
+<p>
+Test your program on the windows console (cmd) by typing:
+<code> python asciiUni.py </code> assuming that your code is in the file 
+<code> asciiUni.py </code> and you are in the corresponding directory.
+</p>
+
+
+<h4>List Comprehension and Formatting</h4>
+
+<p> Now, do not use a loop but use list comprehension and formated strings.</p>
+
+<p>
+First produce a list with 256 strings containing the above lines:
+<pre><code>
+ll = [ '  0  0x00', '  1  0x01  ', '  2  0x02  ' ________________
+</code></pre>
+</p> 
+
+<p>
+Then concatenate all elements the list with the <code>join</code> method in string. <p>
+
+
+
+
+<h3>Exercise 2: Radix Sort</h3>
+
+<p>
+Given a list of tuples consisting of a string and a number, assume that the string is most significant and the number less significant. Perform radix sort on this list of tuples with the <code>sort</code> which provides a stable sort. Fix and complete the code below:
+</p>
+
+<pre><code>
+import random
+import math
+
+things = 5*['car'] + 3*['bike'] + 4*['airplane']
+ids = [math.trunc(100*random.random()) for x in range(len(things))]
+
+# fix below to sort according to pass 1 for radix sort
+tups = sorted([(ids[i],things[i]) for i in range(len(things))])
+
+
+print( tups )
+
+# add sorting for pass 2 of radix sort
+
+
+
+print(tups)
+
+</code></pre>
+
+
+
+
+<h3>Exercise 3 and Quiz: Strings and Lists</h3>
+
+<p>
+Strings can be split into individual words with the <code>split</code> method. Strings can be <em>converted</em> into list of characters with the <code>list</code> constructor.
+</p>
+<p>
+Write a program that accepts a sentence as console input and calculates the number of upper case letters and non-whitespace characters. 
+</p>
+<p>
+Suppose the following input is supplied to the program:
+<pre><code>
+Hello    World! 
+</code></pre>
+Then, the output should be:
+<pre><code>
+Upper 2
+Non-whitespace 11
+</code></pre>
+</p>
+
+
+
+
+</BODY>
+</HTML>

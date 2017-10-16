@@ -1,0 +1,13 @@
+#lang racket
+(define (ourLog x e)
+  (let loop ((n x) (m e) (acc 2))
+    (cond
+      
+    (abs (-   ( * (expt -1 (+ acc 1)) (/ (expt n acc) acc) )    ( * (expt -1 (+ acc 1)) (/ (expt n (- acc 1) ) (- acc 1)) ) ))
+
+        (loop (cdr n) (+ acc 1))
+        (begin  (display "ERROR: The following lists are not sorted: ") (display acc) #f)
+        )
+    
+    ))
+  ))

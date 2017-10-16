@@ -1,0 +1,21 @@
+#lang racket
+
+(define (shit lst)
+ (apply append lst))
+
+(define (ordered? lst)
+      (cond ((null? lst) #t)
+            ((eq? (length lst) 1) #t)
+      ((> (car (cdr lst)) (car lst))
+        (ordered? (cdr lst)))
+      (else #f))
+     )
+
+(define (checkSorted lst)
+  (let loop ((n lst) (acc 1))
+    (if (eqv? (ordered? (car n)) '#t )
+        (loop (cdr n) (+ 1 acc))
+        (display "ERROR: The following lists are not sorted: " ((display acc)))
+        )
+    )
+  )

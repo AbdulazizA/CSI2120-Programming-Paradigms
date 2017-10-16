@@ -1,0 +1,7 @@
+(define (quaternay X)
+  (let loop ((n X) (acc 0) (mult 1))
+    (if (< n 4)
+        (+ (* mult n) acc)
+        (loop (quotient n 4)
+              (+ (* mult (modulo n 4)) acc)
+              (* mult 10)))))

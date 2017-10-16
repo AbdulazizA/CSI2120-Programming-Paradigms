@@ -1,0 +1,161 @@
+<HTML>
+<HEAD>
+<TITLE>CSI 2120, Winter 2016, Lab 10</TITLE>
+</HEAD>
+<BODY >
+<h1> CSI 2120</h1>
+<h2> Lab 10: Go</h2>
+
+This laboratory is on exploring Go. We only start Go in lectures, March 29th, i.e., it is mainly an exploration with the help of on-line resources referenced here and your TA. There is no quiz this week and our last quiz is next week.
+
+
+<h3>Exercise 1: Go Basics: Switch</h3>
+
+<p>
+Test what will be printed by the program below. (Note that if you use the sandbox on the golang website, you will not be able to use console input and should replace it by assignging fixed values to a and b).  
+</p>
+
+<pre><code>
+package main
+
+import "fmt"
+
+func main() {
+	var a, b int
+	fmt.Print("Input Number a: ")
+	fmt.Scanf("%d", &a)
+	fmt.Print("Input Number b: ")
+	fmt.Scanf("%d", &b)
+	switch {
+	case a < b && b < 2:
+		fmt.Println("a is smaller than 2")
+		fallthrough
+	case a < b && b < 10:
+		fmt.Println("a is smaller than 10")
+		fallthrough
+	case a < b:
+		fmt.Println("a is smaller than b")
+	default:
+		fmt.Println("a is NOT smaller than b")
+	}
+}
+</code></pre>
+
+
+<h3>Exercise 2: Go Basics: Looping</h3>
+
+<p>
+A program should print a pattern as follows to the console:
+</p>
+
+<pre><code>
+    x
+   xx
+  xxx
+ xxxx
+xxxxx
+ xxxx
+  xxx
+   xx
+    x
+</code></pre>
+
+Complete the following program:
+
+<pre><code>
+package main
+
+import "fmt"
+
+func main() {
+	lineWidth := 5
+	symb := "x"
+	lineSymb := symb
+	formatStr := fmt.Sprintf("%%%ds\n", lineWidth)
+
+
+
+}
+</code></pre>
+
+Make sure to look at 
+<a href="https://golang.org/doc/effective_go.html#for">Golang tutorial on for loops</a> and you should note that you can concatenate strings with +.
+
+
+<h3>Exercise 3: Go Basics: Strings</h3>
+
+
+<p> 
+The program below uses the strings package to count the occurence of consunants in the text. Change the program to not use the strings package but use looping of the string instead. 
+
+<pre><code>
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	// Count the number of consonants in a string: a, e, i, o, u
+	text := "The School of Electrical Engineering and Computer Science was formed in 1997 by the merger of the Department of Computer Science and of the Department of Electrical and Computer Engineering. The School of EECS is the University of Ottawa's centre for research and teaching in all areas related to computing, computers and communications. This interdisciplinary school combines four cutting-edge programs: electrical engineering, software engineering, computer engineering and computer science."
+
+	// strings package
+	fmt.Printf("%d number of a\n",
+		strings.Count(text, "a")+strings.Count(text, "A"))
+	fmt.Printf("%d number of e\n",
+		strings.Count(text, "e")+strings.Count(text, "E"))
+	fmt.Printf("%d number of i\n",
+		strings.Count(text, "i")+strings.Count(text, "I"))
+	fmt.Printf("%d number of o\n",
+		strings.Count(text, "o")+strings.Count(text, "O"))
+	fmt.Printf("%d number of u\n",
+		strings.Count(text, "u")+strings.Count(text, "U"))
+}
+</code></pre>
+
+Start by reading the following <a href="https://blog.golang.org/strings">golang blog post on strings</a> and the documentation on the <a href="https://golang.org/pkg/strings/">strings package</a>.
+
+
+<h3><em>Advanced!</em> Exercise 4: Go Structs and Pointers</h3>
+
+A Go program is to read a person (last and first name) from console (use an input array if using the sandbox) and assign an Id counting up. The program must use the structure Person.   
+
+<pre><code>
+type Person struct {
+	lastName  string
+	firstName string
+	iD        int
+}
+</code></pre>
+
+The main function looks as follows:
+
+<pre><code>
+func main() {
+	nextId := 101
+	for {
+		var (
+			p   Person
+			err error
+		)
+		nextId, err = inPerson(&p, nextId)
+		if err != nil {
+			fmt.Println("Invalid entry ... exiting")
+			break
+		}
+		printPerson(p)
+	}
+}
+</code></pre>
+
+Supply the functions <code>inPerson</code> and <code>printPerson</code>.
+
+
+You can find information on <a href="https://tour.golang.org/moretypes/2">Golang tour on struct</a> and <a href="https://golang.org/doc/effective_go.html#functions">Golang tutorial on functions</a>.
+
+
+
+
+</BODY>
+</HTML>
